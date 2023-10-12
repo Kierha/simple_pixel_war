@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pixel War</title>
+</head>
+
+<body>
+    <header>
+        <h3>Pixel War</h3>
+    </header>
+
+<main>
+    <!-- Fenêtre de sélection du mode d'entrée d'un pixel -->
+    <div id="selection-banner">
+        <div id="color-input-container">
+            <label for="input-method">Méthode d'entrée: </label>
+            <select id="input-method">
+                <option value="click">Au Clic</option>
+                <option value="manual">Manuellement</option>
+            </select>
+        </div>
+        <!-- Color picker -->
+        <input type="color" id="color-picker" value="#000000">
+    </div>
+    <!-- Fenêtre insertion pixel manuel -->
+    <div id="coordinate-inputs" style="display: none;">
+        <label for="x-coord">X: </label>
+        <input type="number" id="x-coord" min="0" max="999">
+        <label for="y-coord">Y: </label>
+        <input type="number" id="y-coord" min="0" max="699">
+        <button id="apply-color">Appliquer couleur</button>
+    </div>
+    <!-- Tableau canva -->
+    <canvas id="pixel-grid" width="1000" height="700"></canvas>
+</main>
+
+    <footer>
+        <p>© 2023 Pixel War</p>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
