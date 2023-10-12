@@ -18,5 +18,6 @@ server.listen(3000, () => {
   console.log("Server is listening on port 3000");
 });
 
+// Routes pour l'API
 const pixelsRoutes = require("./routes/pixels");
 app.use("/api", pixelsRoutes);

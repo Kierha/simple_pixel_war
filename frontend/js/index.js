@@ -9,6 +9,7 @@ const pixelSize = 10;
 const socket = new WebSocket("ws://localhost:3000"); // Ajustez l'URL si nécessaire
 
 socket.addEventListener("message", (event) => {
+  console.log("WebSocket message:", event.data); // Ajoutez ce log
   const { x, y, color } = JSON.parse(event.data);
   colorPixel(x, y, color);
 });
@@ -21,6 +22,7 @@ const colorPixel = (x, y, color) => {
 
 let isClickEnabled = true;
 
+// Ecoute des clics sur le canvas
 canvas.addEventListener("click", (e) => {
   if (!isClickEnabled) return;
 
@@ -35,6 +37,7 @@ canvas.addEventListener("click", (e) => {
   socket.send(JSON.stringify({ x, y, color: colorPicker.value }));
 });
 
+// Ecoute des clics sur le bouton "Appliquer" pour colorer un pixel manuellement
 document.getElementById("apply-color").addEventListener("click", () => {
   const xCoordInput = document.getElementById("x-coord");
   const yCoordInput = document.getElementById("y-coord");
@@ -53,16 +56,19 @@ document.getElementById("apply-color").addEventListener("click", () => {
 const inputMethodSelect = document.getElementById("input-method");
 const coordinateInputs = document.getElementById("coordinate-inputs");
 
+// Ecoute des changements sur le sélecteur de méthode d'entrée
 inputMethodSelect.addEventListener("change", () => {
   const isManual = inputMethodSelect.value === "manual";
   coordinateInputs.style.display = isManual ? "block" : "none";
   isClickEnabled = !isManual;
 });
 
+// Affiche les coordonnées du tableau du pixel survolé
 const hoverInfo = document.createElement("div");
 hoverInfo.setAttribute("id", "hover-info");
 document.body.appendChild(hoverInfo);
 
+// Ecoute des mouvements de souris sur le canvas
 canvas.addEventListener("mousemove", (e) => {
   if (inputMethodSelect.value === "manual") {
     const rect = canvas.getBoundingClientRect();
@@ -97,6 +103,7 @@ const fetchPixelsAndDraw = async () => {
     if (Array.isArray(pixels)) {
       // Utilise chaque objet pixel pour dessiner un pixel sur le canvas
       pixels.forEach((pixel) => {
+        console.log("Drawing pixel at load:", pixel); // Ajoutez ce log
         colorPixel(pixel.x_coord, pixel.y_coord, pixel.color);
       });
     } else {

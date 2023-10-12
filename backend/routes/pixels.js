@@ -1,8 +1,8 @@
-// Dans backend/routes/pixels.js
 const express = require("express");
 const router = express.Router();
 const { pool } = require("../config/db");
 
+// Route pour récupérer les pixels en base de données
 router.get("/pixels", async (req, res) => {
   let connection;
   try {
@@ -10,7 +10,7 @@ router.get("/pixels", async (req, res) => {
     const rows = await connection.query("SELECT * FROM pixels");
 
     // Log des données pour le débug
-    console.log("Data:", rows);
+    // console.log("Data:", rows);
 
     // Vérification que les données sont un tableau
     if (!Array.isArray(rows)) {
@@ -20,7 +20,6 @@ router.get("/pixels", async (req, res) => {
 
     res.json(rows);
   } catch (error) {
-    // Log de l'erreur pour le débug
     console.error("Error fetching data:", error);
     res.status(500).send("Server error");
   } finally {
@@ -30,6 +29,7 @@ router.get("/pixels", async (req, res) => {
   }
 });
 
+// Route pour insérer ou mettre à jour un pixel en base de données
 router.post("/pixel", async (req, res) => {
   let connection;
   try {

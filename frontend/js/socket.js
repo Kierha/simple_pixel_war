@@ -1,9 +1,11 @@
 const socket = new WebSocket("ws://localhost:3000");
 
+// Log d'un message lorsque la connexion au serveur WebSocket est ouverte
 socket.addEventListener("open", (event) => {
   console.log("Connected to the WS server");
 });
 
+// Désériealisation des données reçues du serveur
 socket.addEventListener("message", (event) => {
   const { x, y, color } = JSON.parse(event.data);
   colorPixel(x, y, color);
@@ -15,6 +17,7 @@ const sendPixelUpdate = (x, y, color) => {
   socket.send(JSON.stringify(pixelData));
 };
 
+// Fonction pour colorer un pixel spécifique
 document.getElementById("apply-color").addEventListener("click", () => {
   const xCoordInput = document.getElementById("x-coord");
   const yCoordInput = document.getElementById("y-coord");
@@ -31,6 +34,7 @@ document.getElementById("apply-color").addEventListener("click", () => {
   }
 });
 
+// Ecoute des clics sur le canvas
 document.getElementById("pixel-grid").addEventListener("click", (e) => {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
