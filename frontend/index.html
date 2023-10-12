@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pixel War</title>
+</head>
+
+<body>
+    <div id="selection-banner">
+        <label for="input-method">Méthode d'entrée: </label>
+        <select id="input-method">
+            <option value="click">Au Clic</option>
+            <option value="manual">Manuellement</option>
+        </select>
+    </div>
+    <input type="color" id="color-picker" value="#000000">
+    <div id="coordinate-inputs" style="display: none;">
+        <label for="x-coord">X: </label>
+        <input type="number" id="x-coord" min="0" max="999">
+        <label for="y-coord">Y: </label>
+        <input type="number" id="y-coord" min="0" max="699">
+        <button id="apply-color">Appliquer couleur</button>
+    </div>
+    <canvas id="pixel-grid" width="1000" height="700"></canvas>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
