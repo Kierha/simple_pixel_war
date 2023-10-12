@@ -9,7 +9,7 @@ const pixelSize = 10;
 const socket = new WebSocket("ws://localhost:3000"); // Ajustez l'URL si nécessaire
 
 socket.addEventListener("message", (event) => {
-  console.log("WebSocket message:", event.data); // Ajoutez ce log
+  console.log("WebSocket message:", event.data);
   const { x, y, color } = JSON.parse(event.data);
   colorPixel(x, y, color);
 });
@@ -103,7 +103,7 @@ const fetchPixelsAndDraw = async () => {
     if (Array.isArray(pixels)) {
       // Utilise chaque objet pixel pour dessiner un pixel sur le canvas
       pixels.forEach((pixel) => {
-        console.log("Drawing pixel at load:", pixel); // Ajoutez ce log
+        console.log("Drawing pixel at load:", pixel);
         colorPixel(pixel.x_coord, pixel.y_coord, pixel.color);
       });
     } else {
