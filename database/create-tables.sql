@@ -1,3 +1,7 @@
+-- Script de création de la base de données
+
+CREATE DATABASE pixelwar;
+
 -- Script de création de la table pixels pour la base de données
 
 CREATE TABLE pixels (
