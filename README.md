@@ -43,7 +43,7 @@ Il est également possible d'utiliser le Dockerfile pour installer puis lancer l
 
 ```bash
 docker build -t simple_pixel_war
-docker run -p 3000:3000 -d simple_pixel_war
+docker run -p 3000:3000 simple_pixel_war
 ```
 
 ## Auteur
