@@ -31,20 +31,32 @@ npm install
 
 ## Lancement de l'application
 
-Vous pouvez lancer l'application en utilisant la commande suivante :
+### Utilisation de Node.js
+
+Pour lancer l'application directement avec Node.js, utilisez la commande suivante :
 
 ```bash
 npm start
 ```
 
-L'application sera accessible à l'adresse `http://localhost:3000` dans votre navigateur. <br>
+L'application sera accessible à l'adresse `http://localhost:3000` dans votre navigateur.
 
-Il est également possible d'utiliser le Dockerfile pour installer puis lancer l'application dans un conteneur Docker. Pour cela, vous pouvez utiliser les commandes suivantes :
+### Utilisation de Docker Compose
 
-```bash
-docker build -t simple_pixel_war
-docker run -p 3000:3000 simple_pixel_war
-```
+Pour installer et lancer l'application dans un environnement conteneurisé avec Docker Compose, suivez ces étapes :
+
+1. Construire et démarrer les services :
+
+   ```bash
+   docker-compose up --build
+   ```
+
+2. L'application sera accessible à l'adresse `http://localhost:3000` dans votre navigateur.
+
+3. Pour arrêter et supprimer les conteneurs, utilisez :
+   ```bash
+   docker-compose down
+   ```
 
 ## Auteur
 
