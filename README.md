@@ -37,8 +37,14 @@ Vous pouvez lancer l'application en utilisant la commande suivante :
 npm start
 ```
 
-L'application sera accessible à l'adresse `http://localhost:3000` dans votre navigateur.
+L'application sera accessible à l'adresse `http://localhost:3000` dans votre navigateur. <br>
 
+Il est également possible d'utiliser le Dockerfile pour installer puis lancer l'application dans un conteneur Docker. Pour cela, vous pouvez utiliser les commandes suivantes :
+
+```bash
+docker build -t simple_pixel_war
+docker run -p 3000:3000 -d simple_pixel_war
+```
 
 ## Auteur
 
